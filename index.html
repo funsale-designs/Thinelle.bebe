@@ -15,6 +15,7 @@
       border: 15px solid transparent;
       border-image: url('vine.jpg') 30 round;
     }
+
     nav {
       background-color: #1b1b1b;
       display: flex;
@@ -25,33 +26,54 @@
       top: 0;
       z-index: 100;
     }
+
     nav a {
       text-decoration: none;
       color: #a8e6a3;
       font-weight: 500;
     }
+
     nav a:hover {
       color: #4caf50;
     }
+
     header {
-      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1.5em;
       padding: 4em 1em 2em;
       background: #cce5cc;
+      text-align: center;
     }
+
+    header video {
+      height: 100px;
+      border-radius: 12px;
+    }
+
+    .header-text {
+      max-width: 500px;
+    }
+
     section {
       padding: 2em 1em;
       max-width: 1000px;
       margin: auto;
     }
+
     h2 {
       color: #1b1b1b;
       text-align: center;
     }
+
     .reviews {
       background-color: #d9f2d9;
       border-radius: 20px;
       padding: 2em 1em;
     }
+
     .review {
       background: #fff;
       padding: 1em;
@@ -59,6 +81,7 @@
       margin-bottom: 1.5em;
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
+
     footer {
       text-align: center;
       padding: 2em 1em;
@@ -75,8 +98,11 @@
   </nav>
 
   <header>
-    <h1>Welcome to Thinelle BeBe</h1>
-    <p>Natural care for every mother and baby.</p>
+    <video src="Thinelle Bebe.mp4" autoplay muted loop playsinline></video>
+    <div class="header-text">
+      <h1>Welcome to Thinelle BeBe</h1>
+      <p>Natural care for every mother and baby.</p>
+    </div>
   </header>
 
   <section id="about">
