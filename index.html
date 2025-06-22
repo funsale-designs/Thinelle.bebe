@@ -49,7 +49,8 @@
     }
 
     header video {
-      height: 100px;
+      height: 150px;
+      max-width: 100%;
       border-radius: 12px;
     }
 
@@ -87,6 +88,13 @@
       padding: 2em 1em;
       background-color: #1b1b1b;
       color: #a8e6a3;
+    }
+
+    /* Responsive: reduce logo height on small screens */
+    @media (max-width: 600px) {
+      header video {
+        height: 100px;
+      }
     }
   </style>
 </head>
