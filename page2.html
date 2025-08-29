@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Thinelle BeBe - Products</title>
+  <title>Thinelle BeBe - Our Products</title>
+  <meta name="description" content="Shop Thinelle BeBe's 100% pure Anhydrous Lanolin Nipple Butter. A safe, natural, and gentle solution for breastfeeding mothers.">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
   <style>
     body {
@@ -29,6 +30,7 @@
       text-decoration: none;
       color: #a8e6a3;
       font-weight: 500;
+      transition: color 0.3s ease;
     }
     nav a:hover {
       color: #4caf50;
@@ -37,39 +39,88 @@
       padding: 2em 1em;
       max-width: 1000px;
       margin: auto;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
     }
-    .product {
-      text-align: center;
+    section.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .product-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2em;
       background: #fff;
       padding: 2em;
       border-radius: 20px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       margin-bottom: 2em;
     }
-    .product img {
+    .product-details {
+      text-align: center;
+    }
+    .product-image {
       max-width: 100%;
       max-height: 300px;
       border-radius: 20px;
-      margin-bottom: 1em;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     }
-    .button {
+    .product-details ul {
+      text-align: left;
+      list-style-type: '🌿 '; /* A simple, natural-themed bullet point */
+      padding-left: 1em;
+      margin-top: 1em;
+    }
+    .product-details li {
+      margin-bottom: 0.5em;
+    }
+    .cta-button {
       display: inline-block;
-      background-color: #1b1b1b;
-      color: #a8e6a3;
-      padding: 0.7em 1.4em;
+      width: fit-content;
+      margin-top: 1.5em;
+      padding: 1em 2.5em;
+      background-color: #4caf50;
+      color: #fff;
       text-decoration: none;
       border-radius: 30px;
-      font-size: 1em;
+      font-weight: 700;
+      letter-spacing: 1px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+    .cta-button:hover {
+      background-color: #388e3c;
+      transform: translateY(-2px);
     }
     h2 {
       color: #1b1b1b;
       text-align: center;
+      margin-bottom: 1em;
+    }
+    .ingredients-box {
+      background-color: #d9f2d9;
+      border-left: 5px solid #4caf50;
+      padding: 2em;
+      border-radius: 15px;
     }
     footer {
       text-align: center;
       padding: 2em 1em;
       background-color: #1b1b1b;
       color: #a8e6a3;
+    }
+
+    /* Responsive adjustments */
+    @media (min-width: 768px) {
+      .product-container {
+        flex-direction: row;
+        text-align: left;
+      }
+      .product-details {
+        text-align: left;
+      }
     }
   </style>
 </head>
@@ -82,21 +133,54 @@
 
   <section id="ingredients">
     <h2>Ingredients</h2>
-    <p>Our nipple butter is made from <strong>100% Anhydrous Lanolin</strong>. No additives. No chemicals. Only nature's best.</p>
-    <p><em>For external use only.</em></p>
+    <div class="ingredients-box">
+      <p>Our nipple butter is made from <strong>100% Anhydrous Lanolin</strong>. It is meticulously refined and purified to ensure the highest quality.</p>
+      <p><em>No additives. No preservatives. No chemicals. Only nature's best.</em></p>
+      <p><em>For external use only. Safe for mom and baby.</em></p>
+    </div>
   </section>
 
   <section id="product">
     <h2>Our Product</h2>
-    <div class="product">
-      <img src="20250616_155222.jpg" alt="Thinelle BeBe Nipple Butter">
-      <h3>Thinelle BeBe Nipple Butter</h3>
-      <p>Gentle, safe, and pure nipple care for breastfeeding moms. Made with 100% Anhydrous Lanolin.</p>
-      <p><strong>Price: R150.00</strong></p>
-      <a href="page3.html#buy" class="button">Buy Now</a>
+    <div class="product-container">
+      <img src="20250616_155222.jpg" class="product-image" alt="A jar of Thinelle BeBe Nipple Butter, showing the light-yellow, creamy texture.">
+      <div class="product-details">
+        <h3>Thinelle BeBe Nipple Butter</h3>
+        <p>Gentle, safe, and pure nipple care for breastfeeding moms. Our butter is designed to soothe, protect, and relieve soreness, ensuring a more comfortable breastfeeding experience.</p>
+        <p><strong>Size: 50g</strong></p>
+        <p><strong>Price: R150.00</strong></p>
+        
+        <ul>
+          <li>Made with 100% pure Anhydrous Lanolin.</li>
+          <li>Handmade with love and care.</li>
+          <li>Safe for baby—no need to wipe off before feeding.</li>
+          <li>Dermatologically tested.</li>
+        </ul>
+        
+        <a href="page3.html#buy" class="cta-button">Buy Now</a>
+      </div>
     </div>
   </section>
 
   <footer>&copy; 2025 Thinelle BeBe. All rights reserved.</footer>
+
+  <script>
+    // Intersection Observer for fade-in effect on scroll
+    const sections = document.querySelectorAll('section');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+        }
+      });
+    }, {
+      threshold: 0.4
+    });
+
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+  </script>
 </body>
 </html>
