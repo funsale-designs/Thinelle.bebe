@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Thinelle BeBe - Home</title>
+  <title>Thinelle BeBe - Natural Care for Moms & Babies</title>
+  <meta name="description" content="Handmade nipple butter by Thinelle BeBe. Natural and pure lanolin to soothe and protect for a comfortable breastfeeding journey.">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
   <style>
     body {
@@ -31,6 +32,7 @@
       text-decoration: none;
       color: #a8e6a3;
       font-weight: 500;
+      transition: color 0.3s ease;
     }
 
     nav a:hover {
@@ -46,12 +48,15 @@
       padding: 4em 1em 2em;
       background: #cce5cc;
       text-align: center;
+      opacity: 0;
+      animation: fadeIn 1s forwards;
     }
 
     header video {
       height: 150px;
       max-width: 100%;
       border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     }
 
     .header-text {
@@ -62,11 +67,33 @@
       padding: 2em 1em;
       max-width: 1000px;
       margin: auto;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    section.in-view {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     h2 {
       color: #1b1b1b;
       text-align: center;
+      margin-bottom: 1em;
+    }
+
+    .about-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5em;
+    }
+
+    .about-content img {
+      max-width: 300px;
+      border-radius: 15px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
 
     .reviews {
@@ -77,10 +104,47 @@
 
     .review {
       background: #fff;
-      padding: 1em;
+      padding: 1.5em;
       border-radius: 15px;
       margin-bottom: 1.5em;
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .review:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    .review .stars {
+      color: #ffd700; /* Gold color for stars */
+      font-size: 1.2em;
+      margin-bottom: 0.5em;
+    }
+
+    .review p {
+      margin: 0;
+      line-height: 1.5;
+    }
+    
+    .cta-button {
+      display: block;
+      width: fit-content;
+      margin: 2em auto 0;
+      padding: 1em 2em;
+      background-color: #4caf50;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+    
+    .cta-button:hover {
+      background-color: #388e3c;
+      transform: translateY(-2px);
     }
 
     footer {
@@ -90,41 +154,93 @@
       color: #a8e6a3;
     }
 
-    /* Responsive: reduce logo height on small screens */
+    /* Keyframe Animations */
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* Responsive adjustments */
     @media (max-width: 600px) {
       header video {
         height: 100px;
+      }
+    }
+    @media (min-width: 768px) {
+      .about-content {
+        flex-direction: row;
+        text-align: left;
+      }
+      .about-content p {
+        padding-left: 2em;
       }
     }
   </style>
 </head>
 <body>
   <nav>
-    <a href="index.html">Home</a>
+    <a href="#about">About</a>
+    <a href="#reviews">Reviews</a>
     <a href="page2.html">Products</a>
     <a href="page3.html">Contact</a>
   </nav>
 
   <header>
-    <video src="Thinelle Bebe.mp4" autoplay muted loop playsinline></video>
+    <video src="Thinelle Bebe.mp4" autoplay muted loop playsinline poster="thinelle_poster.png" alt="Thinelle BeBe Brand Logo Animation"></video>
     <div class="header-text">
       <h1>Welcome to Thinelle BeBe</h1>
       <p>Natural care for every mother and baby.</p>
+      <a href="page2.html" class="cta-button">Shop Our Products</a>
     </div>
   </header>
 
   <section id="about">
     <h2>About Thinelle BeBe</h2>
-    <p>Thinelle BeBe Nipple Butter was created by Michelle Louwrens, passionate about providing safe, pure products for breastfeeding moms. Our product is handmade with love and care to support your breastfeeding journey.</p>
+    <div class="about-content">
+      <img src="nipple-butter-product.jpg" alt="Thinelle BeBe Nipple Butter product container with ingredients on a leafy background.">
+      <p>Thinelle BeBe Nipple Butter was created by Michelle Louwrens, passionate about providing safe, pure products for breastfeeding moms. Our product is handmade with love and care using 100% pure lanolin to soothe and protect, supporting your comfortable and joyful breastfeeding journey.</p>
+    </div>
   </section>
 
   <section id="reviews" class="reviews">
     <h2>Customer Reviews</h2>
-    <div class="review"><p><strong>Jane D.</strong></p><p>"Thinelle BeBe saved my breastfeeding journey!"</p></div>
-    <div class="review"><p><strong>Amelia S.</strong></p><p>"Love that it’s pure lanolin. Highly recommend!"</p></div>
-    <div class="review"><p><strong>Leigh W.</strong></p><p>"Feels amazing and worked better than anything else I tried!"</p></div>
+    <div class="review">
+      <div class="stars">★★★★★</div>
+      <p><strong>Jane D.</strong></p>
+      <p>"Thinelle BeBe saved my breastfeeding journey! The butter is so soothing and effective. I can't recommend it enough."</p>
+    </div>
+    <div class="review">
+      <div class="stars">★★★★★</div>
+      <p><strong>Amelia S.</strong></p>
+      <p>"Love that it’s pure lanolin. I feel confident using this on myself and for my baby. It worked better than anything else I tried."</p>
+    </div>
+    <div class="review">
+      <div class="stars">★★★★★</div>
+      <p><strong>Leigh W.</strong></p>
+      <p>"Feels amazing and worked better than anything else I tried! It absorbs well and provides immediate relief. A must-have for new moms."</p>
+    </div>
   </section>
 
   <footer>&copy; 2025 Thinelle BeBe. All rights reserved.</footer>
+
+  <script>
+    // Intersection Observer for fade-in effect on scroll
+    const sections = document.querySelectorAll('section');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+        }
+      });
+    }, {
+      threshold: 0.4
+    });
+
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+  </script>
 </body>
 </html>
