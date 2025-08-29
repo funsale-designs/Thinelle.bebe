@@ -3,8 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Thinelle BeBe - Contact & Buy</title>
+  <title>Thinelle BeBe - Contact & Order</title>
+  <meta name="description" content="Contact Thinelle BeBe to place your order, ask a question, or get in touch. We are based in Vanderbijlpark, South Africa.">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <style>
     body {
       font-family: 'Poppins', sans-serif;
@@ -29,6 +31,7 @@
       text-decoration: none;
       color: #a8e6a3;
       font-weight: 500;
+      transition: color 0.3s ease;
     }
     nav a:hover {
       color: #4caf50;
@@ -38,19 +41,68 @@
       max-width: 1000px;
       margin: auto;
       text-align: center;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
     }
-    .button {
+    section.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .contact-container {
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+      align-items: center;
+      margin-top: 1em;
+    }
+    .contact-item {
+      background: #fff;
+      padding: 1.5em;
+      border-radius: 15px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      display: flex;
+      align-items: center;
+      gap: 1em;
+      text-align: left;
+      width: 100%;
+      max-width: 400px;
+      transition: transform 0.3s ease;
+    }
+    .contact-item:hover {
+      transform: translateY(-5px);
+    }
+    .contact-item i {
+      font-size: 1.5em;
+      color: #4caf50;
+      width: 30px;
+      text-align: center;
+    }
+    .contact-item a {
+      color: #1b1b1b;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .cta-button {
       display: inline-block;
-      background-color: #1b1b1b;
-      color: #a8e6a3;
-      padding: 0.7em 1.4em;
+      background-color: #4caf50;
+      color: #fff;
+      padding: 1em 2.5em;
       text-decoration: none;
       border-radius: 30px;
-      font-size: 1em;
+      font-weight: 700;
+      letter-spacing: 1px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+    .cta-button:hover {
+      background-color: #388e3c;
+      transform: translateY(-2px);
     }
     h2 {
       color: #1b1b1b;
       text-align: center;
+      margin-bottom: 1em;
     }
     footer {
       text-align: center;
@@ -69,16 +121,48 @@
 
   <section id="contact">
     <h2>Contact Us</h2>
-    <p><strong>Michelle Louwrens</strong></p>
-    <p>Phone: <a href="tel:+27731552229">073 155 2229</a></p>
-    <p>WhatsApp: <a href="https://wa.me/27731552229" target="_blank" class="button">Message Us</a></p>
+    <p>Feel free to get in touch with Michelle for any questions, concerns, or to place an order. We are based in **Vanderbijlpark, Gauteng**.</p>
+    <div class="contact-container">
+      <div class="contact-item">
+        <i class="fas fa-phone"></i>
+        <p>Phone: <a href="tel:+27731552229">073 155 2229</a></p>
+      </div>
+      <div class="contact-item">
+        <i class="fab fa-whatsapp"></i>
+        <p>WhatsApp: <a href="https://wa.me/27731552229" target="_blank">Message Us on WhatsApp</a></p>
+      </div>
+      <div class="contact-item">
+        <i class="fas fa-envelope"></i>
+        <p>Email: <a href="mailto:thinellebebe@gmail.com">thinellebebe@gmail.com</a></p>
+      </div>
+    </div>
   </section>
 
   <section id="buy">
     <h2>Ready to Buy?</h2>
-    <a href="https://wa.me/27731552229?text=Hi+Michelle%2C+I'm+interested+in+buying+Thinelle+BeBe+Nipple+Butter!" class="button">Order Now</a>
+    <p>Secure your Thinelle BeBe Nipple Butter today! You can place your order directly via WhatsApp for a quick and easy transaction.</p>
+    <a href="https://wa.me/27731552229?text=Hi+Michelle%2C+I'm+interested+in+buying+Thinelle+BeBe+Nipple+Butter!" class="cta-button">Order Now via WhatsApp</a>
   </section>
 
   <footer>&copy; 2025 Thinelle BeBe. All rights reserved.</footer>
+
+  <script>
+    // Intersection Observer for fade-in effect on scroll
+    const sections = document.querySelectorAll('section');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+        }
+      });
+    }, {
+      threshold: 0.4
+    });
+
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+  </script>
 </body>
 </html>
